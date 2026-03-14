@@ -1,0 +1,215 @@
+.track-order-page {
+    padding: 3rem 0;
+    min-height: 70vh;
+}
+
+.track-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.track-form {
+    display: flex;
+    gap: 1rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+}
+
+.track-form input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.track-form input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.order-status-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.tracking-id-label {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.status-badge {
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.status-badge.pending {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.status-badge.processing {
+    background: #e3f2fd;
+    color: #2196f3;
+}
+
+.status-badge.shipped {
+    background: #f3e5f5;
+    color: #9c27b0;
+}
+
+.status-badge.delivered {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+/* Progress Timeline */
+.status-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.status-progress::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    right: 40px;
+    height: 3px;
+    background: var(--gray-200);
+    z-index: 1;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-dot {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 3px solid var(--gray-200);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #999;
+}
+
+.progress-step.active .step-dot {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 5px rgba(26, 26, 26, 0.1);
+}
+
+.progress-step.active .step-label {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.progress-step.active::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -50%;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    z-index: -1;
+}
+
+.progress-step:first-child.active::after {
+    display: none;
+}
+
+.order-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.details-box {
+    background: var(--gray-100);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.details-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary);
+}
+
+.track-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.track-total {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-300);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .track-form {
+        flex-direction: column;
+    }
+
+    .order-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+    }
+}

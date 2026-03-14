@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.DS_Store
+# Frontend specific
+client/node_modules/
+client/dist/
+# Backend specific
+server/node_modules/

@@ -1,0 +1,4 @@
+{
+  "message": "Gemini: {\"error\":{\"code\":404,\"message\":\"models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\",\"status\":\"NOT_FOUND\"}}",
+  "stack": "Error: Gemini: {\"error\":{\"code\":404,\"message\":\"models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\",\"status\":\"NOT_FOUND\"}}\n    at askAI (D:\\arvr\\ecommerce website\\ecommercewebsite\\server\\aiService.js:26:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async run (D:\\arvr\\ecommerce website\\ecommercewebsite\\server\\debug_ai.js:10:24)"
+}

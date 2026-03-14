@@ -1,0 +1,151 @@
+.user-profile-page {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    min-height: 80vh;
+}
+
+.auth-card {
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
+}
+
+.profile-sidebar {
+    width: 250px;
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: fit-content;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+}
+
+.profile-header h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.profile-menu {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.profile-menu li {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.profile-menu li:hover,
+.profile-menu li.active {
+    background: var(--bg-surface-alt);
+    color: var(--primary);
+    border-left: 3px solid var(--accent);
+}
+
+.btn-logout-sidebar {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #e53935;
+    color: #e53935;
+}
+
+.btn-logout-sidebar:hover {
+    background: #e53935;
+    color: white;
+}
+
+.profile-content {
+    flex-grow: 1;
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.tab-pane h2 {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.profile-form {
+    max-width: 600px;
+}
+
+.profile-message {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Orders List */
+.orders-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.order-card {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-surface-alt);
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.status-shipped {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.status-delivered {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-cancelled {
+    background: #ffebee;
+    color: #c62828;
+}
+
+@media (max-width: 768px) {
+    .user-profile-page {
+        flex-direction: column;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+}

@@ -1,0 +1,103 @@
+.skeleton-item,
+.skeleton-image,
+.skeleton-line,
+.skeleton-button,
+.skeleton-details-image {
+    background: var(--gray-200);
+    background: linear-gradient(90deg,
+            var(--gray-200) 25%,
+            var(--gray-100) 50%,
+            var(--gray-200) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Product Card Skeleton */
+.skeleton-card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+}
+
+.skeleton-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.skeleton-line {
+    height: 1rem;
+}
+
+.skeleton-line.title {
+    width: 80%;
+}
+
+.skeleton-line.price {
+    width: 40%;
+}
+
+.skeleton-line.h1 {
+    height: 2.5rem;
+    width: 60%;
+    margin-bottom: 2rem;
+}
+
+.skeleton-line.p {
+    height: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-button {
+    height: 40px;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Product Details Skeleton */
+.skeleton-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.skeleton-details-image {
+    height: 500px;
+}
+
+.skeleton-button.lg {
+    height: 50px;
+    width: 200px;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .skeleton-details {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton-details-image {
+        height: 300px;
+    }
+}
