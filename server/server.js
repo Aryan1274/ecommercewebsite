@@ -17,7 +17,11 @@ const { askAI } = require('./aiService');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const JWT_SECRET = process.env.JWT_SECRET || 'arvr_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+    console.error('CRITICAL ERROR: JWT_SECRET is not defined in .env');
+    process.exit(1);
+}
 
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
@@ -236,9 +240,9 @@ let db;
     // Seed initial AI API Keys if they don't exist
     const existingKeys = await db.all('SELECT * FROM ai_api_keys');
     if (existingKeys.length === 0) {
-        await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['Gemini', process.env.GEMINI_API_KEY, 1]);
-        await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['Groq', process.env.GROQ_API_KEY, 1]);
-        await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['OpenRouter', process.env.OPENROUTER_API_KEY, 1]);
+        if (process.env.GEMINI_API_KEY) await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['Gemini', process.env.GEMINI_API_KEY, 1]);
+        if (process.env.GROQ_API_KEY) await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['Groq', process.env.GROQ_API_KEY, 1]);
+        if (process.env.OPENROUTER_API_KEY) await db.run("INSERT INTO ai_api_keys (provider, api_key, is_active) VALUES (?, ?, ?)", ['OpenRouter', process.env.OPENROUTER_API_KEY, 1]);
     }
 
 })();

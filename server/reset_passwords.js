@@ -11,7 +11,8 @@ const bcrypt = require('bcryptjs');
 
         console.log('Connected to database.');
 
-        const newPassword = 'admin123';
+        require('dotenv').config();
+        const newPassword = process.env.DEFAULT_ADMIN_PASSWORD || 'admin123';
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 
         console.log('Hashing new password...');

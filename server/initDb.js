@@ -68,7 +68,8 @@ async function setup() {
 
     // Insert admin
     const adminEmail = 'admin@arvr.com';
-    const adminPassword = await bcrypt.hash('admin123', 10);
+    require('dotenv').config();
+    const adminPassword = await bcrypt.hash(process.env.DEFAULT_ADMIN_PASSWORD || 'admin123', 10);
     await db.run('INSERT OR IGNORE INTO users (name, email, password, role) VALUES (?, ?, ?, ?)', ['Admin', adminEmail, adminPassword, 'admin']);
 
     console.log('Database setup complete.');

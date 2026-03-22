@@ -1,7 +1,8 @@
+require('dotenv').config();
 const { askAI } = require('./aiService');
 
 const keys = [
-    { provider: 'Gemini', api_key: 'AIzaSyAZzc8OZYWBY_DLLBeUUMPpzvV5C30fmyU' }
+    { provider: 'Gemini', api_key: process.env.GEMINI_API_KEY }
 ];
 
 async function run() {
